@@ -1,0 +1,42 @@
+// Variable overrides
+html{
+        font-family: Arial, Helvetica, sans-serif !important;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.c-sidebar .c-sidebar-brand{
+    background:rgb(216, 5, 5) !important;
+}
+
+.c-sidebar-nav{
+    background:rgb(139, 5, 5) !important;
+}
+
+.c-sidebar-minimizer{
+    background:rgb(139, 5, 5) !important;
+}
+
+.c-sidebar-nav-dropdown-toggle, .c-sidebar-nav-link{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.c-sidebar-nav-icon{
+    color: rgb(255, 255, 255) !important;
+}
+
+.react-responsive-modal-modal{
+    margin: 4rem !important;
+}
+
+.card { 
+    border: 3px solid black !important;
+    margin: 2rem !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
