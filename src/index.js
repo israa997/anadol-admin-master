@@ -11,6 +11,9 @@ import { icons } from './assets/icons'
 
 import { Provider } from 'react-redux'
 import store from './store'
+import { getAboutList } from './actions/generalSettingsAction';
+
+store.dispatch(getAboutList());
 
 React.icons = icons
 
