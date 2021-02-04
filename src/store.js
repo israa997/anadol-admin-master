@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { productCreateReducer, productDetailsReducer, productListReducer, productUpdateReducer } from "./reducers/productsReducers";
 import { userDeleteReducer, userDetailsReducer, userListReducer, userLoginReducer, userUpdateReducer } from "./reducers/userReducer";
-import {aboutCreateReducer, aboutDeleteReducer, aboutListReducer, privacyPolicyListReducer, updateAboutReducer, privacyPolicyCreateReducer, updatePrivacyPolicyReducer, privacyPolicyDeleteReducer} from "./reducers/generalSettingsReducer";
+import {aboutCreateReducer, aboutDeleteReducer, aboutListReducer, privacyPolicyListReducer,emailsListReducer,emailsListDeleteReducer, updateAboutReducer, privacyPolicyCreateReducer, updatePrivacyPolicyReducer, privacyPolicyDeleteReducer} from "./reducers/generalSettingsReducer";
 const initialState = {
   sidebarShow: 'responsive'
 }
@@ -47,6 +47,10 @@ combineReducers({
  privacyPolicyUpdate: updatePrivacyPolicyReducer,
  privacyPolicyDelete: privacyPolicyDeleteReducer,
 
+
+
+ emailsList: emailsListReducer,
+ emailsListDelete: emailsListDeleteReducer,
 
 
   changeState: changeStateReducer 

@@ -23,7 +23,13 @@ PRIVACYPOLICY_UPDATE_FAIL,
 PRIVACYPOLICY_UPDATE_SUCCESS,
 PRIVACYPOLICY_DELETE_REQUEST,
 PRIVACYPOLICY_DELETE_SUCCESS,
-PRIVACYPOLICY_DELETE_FAIL
+PRIVACYPOLICY_DELETE_FAIL,
+EMAILLIST_LIST_REQUEST,
+EMAILLIST_LIST_SUCCESS,
+EMAILLIST_LIST_FAIL,
+EMAILLIST_DELETE_REQUEST,
+EMAILLIST_DELETE_SUCCESS,
+EMAILLIST_DELETE_FAIL, 
 } from "../constants/generalSettingsConstants";
 
 export const postAboutList =(header_ar, content_ar , header_fr, content_fr, header_tr, content_tr, header_en, content_en) =>async(dispatch, getState)=>{
@@ -185,7 +191,7 @@ export const getAboutList =() =>async(dispatch, getState)=>{
           
           };
           
-          export const getPrivacyPolicyList =() =>async(dispatch, getState)=>{
+ export const getPrivacyPolicyList =() =>async(dispatch, getState)=>{
               try{
               dispatch({
                   type:PRIVACYPOLICY_LIST_REQUEST
@@ -212,7 +218,7 @@ export const getAboutList =() =>async(dispatch, getState)=>{
               
               };
               
-              export const updatePrivacyPolicy = (id, PrivacyPolicy) => async (dispatch, getState) => {
+export const updatePrivacyPolicy = (id, PrivacyPolicy) => async (dispatch, getState) => {
                   try {
                     dispatch({
                       type:PRIVACYPOLICY_UPDATE_REQUEST,
@@ -246,7 +252,7 @@ export const getAboutList =() =>async(dispatch, getState)=>{
                 };
                 
           
-                export const deletePrivacyPolicy =(id) =>async(dispatch, getState)=>{
+ export const deletePrivacyPolicy =(id) =>async(dispatch, getState)=>{
                   try{
                   dispatch({
                       type:PRIVACYPOLICY_DELETE_REQUEST
@@ -273,6 +279,63 @@ export const getAboutList =() =>async(dispatch, getState)=>{
                   
                   };
 
+
+
+
+                  export const getemailsList =() =>async(dispatch, getState)=>{
+                    try{
+                    dispatch({
+                        type:EMAILLIST_LIST_REQUEST
+                    })
+                    
+                    const {data} = await axios.get("http://192.168.1.35:5000/api/home/announce-email");
+                    
+                    dispatch({
+                        type:EMAILLIST_LIST_SUCCESS,
+                        payload: data
+                    })
+                    
+                    }catch(error){
+                    dispatch(
+                        {
+                            type:EMAILLIST_LIST_FAIL,
+                            payload:
+                            error.response && error.response.data.message
+                              ? error.response.data.message
+                              : error.message,
+                        });
+                    
+                    }
+                    
+                    };
+
+
+ export const deleteEmailList =(id) =>async(dispatch, getState)=>{
+                    try{
+                    dispatch({
+                        type:EMAILLIST_DELETE_REQUEST
+                    })
+                    
+                    const {data} = await axios.delete(`http://192.168.1.35:5000/api/home/deleteAnnounce-email/${id}`);
+                    
+                    dispatch({
+                        type:EMAILLIST_DELETE_SUCCESS,
+                        payload: data
+                    })
+                    
+                    }catch(error){
+                    dispatch(
+                        {
+                            type:EMAILLIST_DELETE_FAIL,
+                            payload:
+                            error.response && error.response.data.message
+                              ? error.response.data.message
+                              : error.message,
+                        });
+                    
+                    }
+                    
+                    };
 
 
 

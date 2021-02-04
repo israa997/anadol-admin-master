@@ -22,7 +22,13 @@ PRIVACYPOLICY_UPDATE_FAIL,
 PRIVACYPOLICY_UPDATE_SUCCESS,
 PRIVACYPOLICY_DELETE_REQUEST,
 PRIVACYPOLICY_DELETE_SUCCESS,
-PRIVACYPOLICY_DELETE_FAIL
+PRIVACYPOLICY_DELETE_FAIL,
+EMAILLIST_LIST_REQUEST,
+EMAILLIST_LIST_SUCCESS,
+EMAILLIST_LIST_FAIL,
+EMAILLIST_DELETE_REQUEST,
+EMAILLIST_DELETE_SUCCESS,
+EMAILLIST_DELETE_FAIL, 
 } from "src/constants/generalSettingsConstants.js"
 
 
@@ -189,3 +195,48 @@ export const updateAboutReducer = (state = {}, action) => {
   
   }
   
+
+  export const emailsListReducer = (state = {emailsList:[] }, action)=>{
+    switch(action.type){
+        case EMAILLIST_LIST_REQUEST:
+            return{
+              loading: true,
+              emailsList:[]
+            };
+            case EMAILLIST_LIST_SUCCESS:
+                return{
+                 loading: false,
+                 emailsList: action.payload
+                };
+                case EMAILLIST_LIST_FAIL:
+                    return{
+                        loading: false, error: action.payload
+                    };
+        default:
+            return state;
+    }
+
+}
+
+export const emailsListDeleteReducer = (state = {emailsList:[] }, action)=>{
+  switch(action.type){
+      case EMAILLIST_DELETE_REQUEST:
+          return{
+            loading: true,
+            emailsList:[]
+          };
+          case EMAILLIST_DELETE_SUCCESS:
+              return{
+               loading: false,
+               success: true,
+               emailsList: action.payload
+              };
+              case EMAILLIST_DELETE_FAIL:
+                  return{
+                      loading: false, error: action.payload
+                  };
+      default:
+          return state;
+  }
+
+}
