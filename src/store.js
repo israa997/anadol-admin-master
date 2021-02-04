@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { productCreateReducer, productDetailsReducer, productListReducer, productUpdateReducer } from "./reducers/productsReducers";
 import { userDeleteReducer, userDetailsReducer, userListReducer, userLoginReducer, userUpdateReducer } from "./reducers/userReducer";
-import {aboutCreateReducer, aboutDeleteReducer, aboutListReducer, updateAboutReducer} from "./reducers/generalSettingsReducer";
+import {aboutCreateReducer, aboutDeleteReducer, aboutListReducer, privacyPolicyListReducer, updateAboutReducer, privacyPolicyCreateReducer, updatePrivacyPolicyReducer, privacyPolicyDeleteReducer} from "./reducers/generalSettingsReducer";
 const initialState = {
   sidebarShow: 'responsive'
 }
@@ -39,6 +39,15 @@ combineReducers({
  aboutCreate: aboutCreateReducer,
  aboutUpdate: updateAboutReducer,
  aboutDelete: aboutDeleteReducer,
+
+
+
+ privacyPolicyList: privacyPolicyListReducer,
+ privacyPolicyCreate: privacyPolicyCreateReducer,
+ privacyPolicyUpdate: updatePrivacyPolicyReducer,
+ privacyPolicyDelete: privacyPolicyDeleteReducer,
+
+
 
   changeState: changeStateReducer 
 });

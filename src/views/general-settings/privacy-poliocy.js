@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import "react-responsive-modal/styles.css";
-import { getAboutList, postAboutList, updateAbout, deleteAbout } from "../../actions/generalSettingsAction";
+import { getPrivacyPolicyList, postPrivacyPolicyList, updatePrivacyPolicy, deletePrivacyPolicy } from "../../actions/generalSettingsAction";
 import { useSelector, useDispatch } from "react-redux";
 // import Alerts from 'src/views/notifications/alerts/Alerts'
 import Loader from "src/views/notifications/alerts/Loader";
@@ -8,21 +8,21 @@ import Message from "src/views/notifications/alerts/Message";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { CForm,CButton, CFormGroup, CCol, CLabel, CInput, CRow, CModal,CModalHeader, CCard} from "@coreui/react";
-const About = () => {
+const PrivacyPolicy = () => {
   
-  const listAbout = useSelector((state) => state.aboutList);
-  const { loading, error, about } = listAbout;
-  let aboutId = about.map((about)=> about.id);
-  console.log(aboutId)
+  const listPrivacyPolicy = useSelector((state) => state.privacyPolicyList);
+  const { loading, error, privacyPolicy } = listPrivacyPolicy;
+  let privacyPolicyId = privacyPolicy.map((privacyPolicy)=> privacyPolicy.id);
+  console.log(privacyPolicyId)
   
-  const addAbout = useSelector(state => state.aboutCreate)
-  const {success, err} = addAbout;
+  const addPrivacyPolicy = useSelector(state => state.privacyPolicyCreate)
+  const {success, err} = addPrivacyPolicy;
  
-  const editAbout = useSelector(state => state.aboutUpdate);
-  const {success:editSuccess, error:editError} = editAbout;
+  const editPrivacyPolicy = useSelector(state => state.privacyPolicyUpdate);
+  const {success:editSuccess, error:editError} = editPrivacyPolicy;
 
- const AboutDelete = useSelector(state => state.aboutDelete);
- const {success:deleteSuccess, error:deleteError} = AboutDelete;
+ const PrivacyPolicyDelete = useSelector(state => state.privacyPolicyDelete);
+ const {success:deleteSuccess, error:deleteError} = PrivacyPolicyDelete;
   
  const dispatch = useDispatch();
  
@@ -61,7 +61,7 @@ const About = () => {
   const [content_en, setContent_en]= useState("");
   
 
-  console.log(loading, error, about);
+  console.log(loading, error, privacyPolicy);
 
  useEffect(() => {
   if(editSuccess){
@@ -80,7 +80,7 @@ const About = () => {
 
 useEffect(()=>{
   if(success ||editSuccess || deleteSuccess){
-   dispatch(getAboutList())
+   dispatch(getPrivacyPolicyList())
   }
 },[dispatch, success,editSuccess, deleteSuccess])
 
@@ -88,7 +88,7 @@ useEffect(()=>{
  const submitCreateHandler = (e) => {
   
   if(header_ar && content_ar  &&  header_fr &&  content_fr &&  header_tr && content_tr &&  header_en &&  content_en){
-   dispatch(postAboutList(header_ar,content_ar , header_fr, content_fr, header_tr,content_tr, header_en, content_en));
+   dispatch(postPrivacyPolicyList(header_ar,content_ar , header_fr, content_fr, header_tr,content_tr, header_en, content_en));
    window.location.reload();
   }
   else{
@@ -98,7 +98,7 @@ useEffect(()=>{
 
   const submitUpdateHandler = (e) => {
     if(header_ar && content_ar  &&  header_fr &&  content_fr &&  header_tr && content_tr &&  header_en &&  content_en){
-     dispatch(updateAbout(aboutId, {header_ar,content_ar , header_fr, content_fr, header_tr,content_tr, header_en, content_en}));
+     dispatch(updatePrivacyPolicy(privacyPolicyId, {header_ar,content_ar , header_fr, content_fr, header_tr,content_tr, header_en, content_en}));
     }
     else{
       alert("Please fill the fields")
@@ -106,8 +106,8 @@ useEffect(()=>{
   }
  
 
-  const deleteRequestOfAbout=(e)=>{
-    dispatch(deleteAbout(aboutId))
+  const deleteRequestOfPrivacyPolicy=(e)=>{
+    dispatch(deletePrivacyPolicy(privacyPolicyId))
     
   }
   
@@ -116,11 +116,11 @@ useEffect(()=>{
   <>
    <CRow>
     <CCol> 
-    { about.length !== 0? 
+    { privacyPolicy.length !== 0? 
     (<>
       <CRow>
           <CCol sm="6" md="6">
-          <h3>Reading and Deleting the current <em style={{ fontWeight:"bold"}}>About</em></h3>
+          <h3>Reading and Deleting the current <em style={{ fontWeight:"bold"}}>Privacy Policy</em></h3>
           <table>
             <thead>
               <tr><td>{deleteError && <Message variant='danger'>{deleteError}</Message>}
@@ -130,7 +130,7 @@ useEffect(()=>{
             </table> 
             <CRow>
                    {
-                    about.map((a, index) => (
+                    privacyPolicy.map((a, index) => (
                      
                     <CCol key={index}>
                       <CRow>
@@ -191,7 +191,7 @@ useEffect(()=>{
                    </CRow>
                  
       
-              <CForm onSubmit={deleteRequestOfAbout}>
+              <CForm onSubmit={deleteRequestOfPrivacyPolicy}>
               <CButton type="submit" size="sm" color="danger" style={{padding:5 ,margin:5}}>
               <i className="fas fa-trash"></i>Delete</CButton>
               </CForm>
@@ -202,7 +202,7 @@ useEffect(()=>{
            <CCol>
                <h3>Editing</h3>
                {editError && <Message variant='danger'>{editError}</Message>}
-               {editSuccess && <Message variant='success'>About Updated</Message>}
+               {editSuccess && <Message variant='success'>Privacy Policy Updated</Message>}
                {loading && <Loader />}
                <CForm onSubmit={submitUpdateHandler} style={{padding:20}}>
                      <CFormGroup row>
@@ -510,4 +510,4 @@ useEffect(()=>{
   };
   
 
-export default About;
+export default PrivacyPolicy;
