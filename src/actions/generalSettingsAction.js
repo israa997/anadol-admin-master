@@ -25,7 +25,7 @@ const config = {
     },
   };
 
-const {data} = await axios.post("http://192.168.1.34:5000/api/home/addAbout",
+const {data} = await axios.post("http://192.168.1.35:5000/api/home/addAbout",
 {header_ar, content_ar , header_fr, content_fr, header_tr,content_tr, header_en, content_en}
 ,config);
 
@@ -54,7 +54,7 @@ export const getAboutList =() =>async(dispatch, getState)=>{
         type: ABOUT_LIST_REQUEST
     })
     
-    const {data} = await axios.get("http://192.168.1.34:5000/api/home/about");
+    const {data} = await axios.get("http://192.168.1.35:5000/api/home/about");
     
     dispatch({
         type: ABOUT_LIST_SUCCESS,
@@ -115,7 +115,7 @@ export const getAboutList =() =>async(dispatch, getState)=>{
             type: ABOUT_DELETE_REQUEST
         })
         
-        const {data} = await axios.delete(`http://192.168.1.34:5000/api/home/deleteAbout/${id}`);
+        const {data} = await axios.delete(`http://192.168.1.35:5000/api/home/deleteAbout/${id}`);
         
         dispatch({
             type: ABOUT_DELETE_SUCCESS,
