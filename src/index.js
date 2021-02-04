@@ -13,9 +13,11 @@ import { Provider } from 'react-redux'
 import store from './store'
 import { getAboutList } from './actions/generalSettingsAction';
 import { getPrivacyPolicyList } from './actions/generalSettingsAction';
+import { getemailsList} from './actions/generalSettingsAction';
 
 store.dispatch(getPrivacyPolicyList());
 store.dispatch(getAboutList());
+store.dispatch(getemailsList());
 
 React.icons = icons
 
