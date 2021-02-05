@@ -40,14 +40,14 @@ const Users = React.lazy(() => import('./views/users/Users'));
 const User = React.lazy(() => import('./views/users/User'));
 const About = React.lazy(() => import('./views/general-settings/About'));
 const privacyPoliocy = React.lazy(() => import('./views/general-settings/privacy-poliocy'));
-const EmailsList = React.lazy(() => import('./views/general-settings/emails-list'));
+const EmailLists = React.lazy(() => import('./views/general-settings/emails-list'));
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/products', name: 'products', component: Products },
   { path: '/general-settings/about', name: 'about', component: About},
   { path: '/general-settings/privacy-poliocy', name: 'privacy-poliocy', component: privacyPoliocy},
-  { path: '/general-settings/emails-list', name: 'emails-list', component: EmailsList},
+  { path: '/general-settings/emails-list', name: 'emails-list', component: EmailLists},
   { path: '/theme', name: 'Theme', component: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', component: Colors },
   { path: '/theme/typography', name: 'Typography', component: Typography },

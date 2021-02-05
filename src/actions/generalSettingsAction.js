@@ -43,7 +43,7 @@ const config = {
     },
   };
 
-const {data} = await axios.post("http://192.168.1.35:5000/api/home/addAbout",
+const {data} = await axios.post("http://192.168.1.38:5000/api/home/addAbout",
 {header_ar, content_ar , header_fr, content_fr, header_tr,content_tr, header_en, content_en}
 ,config);
 
@@ -72,7 +72,7 @@ export const getAboutList =() =>async(dispatch, getState)=>{
         type: ABOUT_LIST_REQUEST
     })
     
-    const {data} = await axios.get("http://192.168.1.35:5000/api/home/about");
+    const {data} = await axios.get("http://192.168.1.38:5000/api/home/about");
     
     dispatch({
         type: ABOUT_LIST_SUCCESS,
@@ -133,7 +133,7 @@ export const getAboutList =() =>async(dispatch, getState)=>{
             type: ABOUT_DELETE_REQUEST
         })
         
-        const {data} = await axios.delete(`http://192.168.1.35:5000/api/home/deleteAbout/${id}`);
+        const {data} = await axios.delete(`http://192.168.1.38:5000/api/home/deleteAbout/${id}`);
         
         dispatch({
             type: ABOUT_DELETE_SUCCESS,
@@ -168,7 +168,7 @@ export const getAboutList =() =>async(dispatch, getState)=>{
               },
             };
           
-          const {data} = await axios.post("http://192.168.1.35:5000/api/home/addPrivacy-Policy",
+          const {data} = await axios.post("http://192.168.1.38:5000/api/home/addPrivacy-Policy",
           {header_ar, content_ar , header_fr, content_fr, header_tr,content_tr, header_en, content_en}
           ,config);
           
@@ -197,7 +197,7 @@ export const getAboutList =() =>async(dispatch, getState)=>{
                   type:PRIVACYPOLICY_LIST_REQUEST
               })
               
-              const {data} = await axios.get("http://192.168.1.35:5000/api/home/privacy-policy");
+              const {data} = await axios.get("http://192.168.1.38:5000/api/home/privacy-policy");
               
               dispatch({
                   type:PRIVACYPOLICY_LIST_SUCCESS,
@@ -258,7 +258,7 @@ export const updatePrivacyPolicy = (id, PrivacyPolicy) => async (dispatch, getSt
                       type:PRIVACYPOLICY_DELETE_REQUEST
                   })
                   
-                  const {data} = await axios.delete(`http://192.168.1.35:5000/api/home/deletePrivacy-Policy/${id}`);
+                  const {data} = await axios.delete(`http://192.168.1.38:5000/api/home/deletePrivacy-Policy/${id}`);
                   
                   dispatch({
                       type:PRIVACYPOLICY_DELETE_SUCCESS,
@@ -288,7 +288,7 @@ export const updatePrivacyPolicy = (id, PrivacyPolicy) => async (dispatch, getSt
                         type:EMAILLIST_LIST_REQUEST
                     })
                     
-                    const {data} = await axios.get("http://192.168.1.35:5000/api/home/announce-email");
+                    const {data} = await axios.get("http://192.168.1.38:5000/api/home/announce-email");
                     
                     dispatch({
                         type:EMAILLIST_LIST_SUCCESS,
@@ -316,7 +316,7 @@ export const updatePrivacyPolicy = (id, PrivacyPolicy) => async (dispatch, getSt
                         type:EMAILLIST_DELETE_REQUEST
                     })
                     
-                    const {data} = await axios.delete(`http://192.168.1.35:5000/api/home/deleteAnnounce-email/${id}`);
+                    const {data} = await axios.delete(`http://192.168.1.38:5000/api/home/deleteAnnounce-email/${id}`);
                     
                     dispatch({
                         type:EMAILLIST_DELETE_SUCCESS,

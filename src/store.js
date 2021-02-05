@@ -49,7 +49,7 @@ combineReducers({
 
 
 
- emailsList: emailsListReducer,
+ emailsLists: emailsListReducer,
  emailsListDelete: emailsListDeleteReducer,
 
 
