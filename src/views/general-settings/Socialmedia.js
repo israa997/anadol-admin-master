@@ -21,8 +21,7 @@ import {
   CInput,
   CRow,
   CModal,
-  CModalHeader,
-  CCard,
+  CModalHeader
 } from "@coreui/react";
 const SocialMedia = () => {
   const listSocialMedia = useSelector((state) => state.socialList);
@@ -47,9 +46,9 @@ const SocialMedia = () => {
     setShowForm(!showForm);
   };
 
-  const refreshPage = () => {
-    window.location.reload();
-  };
+//   const refreshPage = () => {
+//     window.location.reload();
+//   };
 
   const [phoneNum, setphoneNum] = useState("");
   const [facebook_URL, setfacebook_URL] = useState("");

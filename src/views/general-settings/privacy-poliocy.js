@@ -47,9 +47,9 @@ const PrivacyPolicy = () => {
     setShowForm(!showForm);
   }
 
-  const refreshPage = ()=>{
-    window.location.reload();
- }
+//   const refreshPage = ()=>{
+//     window.location.reload();
+//  }
 
   const [header_ar, setHeader_ar]= useState("");
   const [header_fr, setHeader_fr]= useState("");
@@ -81,6 +81,7 @@ const PrivacyPolicy = () => {
 useEffect(()=>{
   if(success ||editSuccess || deleteSuccess){
    dispatch(getPrivacyPolicyList())
+   setShowForm(false)
   }
 },[dispatch, success,editSuccess, deleteSuccess])
 
@@ -353,7 +354,7 @@ useEffect(()=>{
      
 {showForm && <CModal
  show={showForm}
- onClose={refreshPage}> <CModalHeader closeButton> </CModalHeader>{
+ onClose={openForm}> <CModalHeader closeButton> </CModalHeader>{
      
          success ?( <Message variant='success'>Add it successfully</Message> ):
          err ? (<Message variant='danger'>{err}</Message>):
