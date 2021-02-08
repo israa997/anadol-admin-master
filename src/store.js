@@ -4,6 +4,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { productCreateReducer, productDetailsReducer, productListReducer, productUpdateReducer } from "./reducers/productsReducers";
 import { userDeleteReducer, userDetailsReducer, userListReducer, userLoginReducer, userUpdateReducer } from "./reducers/userReducer";
 import {aboutCreateReducer, aboutDeleteReducer, aboutListReducer, privacyPolicyListReducer,emailsListReducer,emailsListDeleteReducer, updateAboutReducer, privacyPolicyCreateReducer, updatePrivacyPolicyReducer, privacyPolicyDeleteReducer, socialAccountListReducer, SocialAccountDeleteReducer, updateSocialAccountReducer, socialAccountCreateReducer} from "./reducers/generalSettingsReducer";
+import { BannerDeleteReducer, updateBannerReducer,BannerListReducer,BannerCreateReducer } from "./reducers/BannerReducer";
 const initialState = {
   sidebarShow: 'responsive'
 }
@@ -57,6 +58,15 @@ combineReducers({
  socialCreate: socialAccountCreateReducer,
  socialUpdate: updateSocialAccountReducer,
  socialDelete: SocialAccountDeleteReducer,
+
+
+
+ bannerList: BannerListReducer,
+ bannerCreate: BannerCreateReducer,
+ bannerUpdate: updateBannerReducer,
+ bannerDelete: BannerDeleteReducer,
+
+
 
   changeState: changeStateReducer 
 });

@@ -42,10 +42,12 @@ const About = React.lazy(() => import('./views/general-settings/About'));
 const privacyPoliocy = React.lazy(() => import('./views/general-settings/privacy-poliocy'));
 const EmailLists = React.lazy(() => import('./views/general-settings/emails-list'));
 const SocialMedia = React.lazy(() => import('./views/general-settings/Socialmedia'));
+const Banner = React.lazy(() => import('./views/banner/banner'));
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/products', name: 'products', component: Products },
+  { path: '/banner', name: 'banner', component: Banner },
   { path: '/general-settings/about', name: 'about', component: About},
   { path: '/general-settings/privacy-poliocy', name: 'privacy-poliocy', component: privacyPoliocy},
   { path: '/general-settings/emails-list', name: 'emails-list', component: EmailLists},

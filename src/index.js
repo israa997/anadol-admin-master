@@ -15,11 +15,13 @@ import { getAboutList } from './actions/generalSettingsAction';
 import { getPrivacyPolicyList } from './actions/generalSettingsAction';
 import { getemailsList} from './actions/generalSettingsAction';
 import { getSocialAccountList} from './actions/generalSettingsAction';
+import { getBannerList} from './actions/BannerAction';
 
 store.dispatch(getPrivacyPolicyList());
 store.dispatch(getAboutList());
 store.dispatch(getemailsList());
 store.dispatch(getSocialAccountList());
+store.dispatch(getBannerList());
 
 React.icons = icons
 
