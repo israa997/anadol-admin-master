@@ -105,7 +105,7 @@ const _nav = [
       {
         _tag: "CSidebarNavItem",
         name: "العملات",
-        to: "/general-settings/countries",
+        to: "/general-settings/currency",
       },
       {
         _tag: "CSidebarNavItem",

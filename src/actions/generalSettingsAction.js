@@ -42,6 +42,30 @@ import {
   SOCIALACCOUNT_DELETE_REQUEST,
   SOCIALACCOUNT_DELETE_SUCCESS,
   SOCIALACCOUNT_DELETE_FAIL,
+  CURRENCY_DELETE_FAIL,
+  CURRENCY_DELETE_SUCCESS,
+  CURRENCY_DELETE_REQUEST,
+  CURRENCY_UPDATE_FAIL,
+  CURRENCY_UPDATE_SUCCESS,
+  CURRENCY_UPDATE_REQUEST,
+  CURRENCY_ADD_FAIL,
+  CURRENCY_ADD_SUCCESS,
+  CURRENCY_ADD_REQUEST,
+  CURRENCY_LIST_FAIL,
+  CURRENCY_LIST_SUCCESS,
+  CURRENCY_LIST_REQUEST,
+  COUNTRY_LIST_REQUEST,
+  COUNTRY_LIST_SUCCESS,
+  COUNTRY_LIST_FAIL,
+  COUNTRY_DELETE_FAIL,
+  COUNTRY_DELETE_SUCCESS,
+  COUNTRY_DELETE_REQUEST,
+  COUNTRY_UPDATE_FAIL,
+  COUNTRY_UPDATE_SUCCESS,
+  COUNTRY_UPDATE_REQUEST,
+  COUNTRY_ADD_FAIL,
+  COUNTRY_ADD_SUCCESS,
+  COUNTRY_ADD_REQUEST,
 } from "../constants/generalSettingsConstants";
 
 export const postAboutList = (
@@ -489,6 +513,260 @@ export const deleteSocialAccount = (id) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: SOCIALACCOUNT_DELETE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const postCurrency = (
+  currency_name_AR,
+      currency_name_FR, 
+      currency_name_TR,
+      currency_name_EN, 
+      currency_code, 
+      exchange_rate
+) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: CURRENCY_ADD_REQUEST,
+    });
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const { data } = await axios.post(
+      "http://192.168.1.38:5000/api/home/addCurrency",
+      {
+        currency_name_AR,
+      currency_name_FR, 
+      currency_name_TR,
+      currency_name_EN, 
+      currency_code, 
+      exchange_rate
+      },
+      config
+    );
+
+    dispatch({
+      type: CURRENCY_ADD_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: CURRENCY_ADD_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const getCurrency = () => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: CURRENCY_LIST_REQUEST,
+    });
+
+    const { data } = await axios.get(
+      "http://192.168.1.38:5000/api/home/currencies"
+    );
+
+    dispatch({
+      type: CURRENCY_LIST_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: CURRENCY_LIST_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const updateCurrency = (id, currency) => async (
+  dispatch,
+  getState
+) => {
+  try {
+    dispatch({
+      type: CURRENCY_UPDATE_REQUEST,
+    });
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const { data } = await axios.put(
+      `/api/Home/editCurrency/${id}`,
+      currency,
+      config
+    );
+
+    dispatch({
+      type: CURRENCY_UPDATE_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: CURRENCY_UPDATE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const deleteCurrency = (id) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: CURRENCY_DELETE_REQUEST,
+    });
+
+    const { data } = await axios.delete(
+      `http://192.168.1.38:5000/api/home/deleteCurrency/${id}`
+    );
+
+    dispatch({
+      type: CURRENCY_DELETE_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: CURRENCY_DELETE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const postCountry = (
+  country_name_AR, country_name_EN,  country_name_FR, country_name_TR, shipping_price
+) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: COUNTRY_ADD_REQUEST,
+    });
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const { data } = await axios.post(
+      "http://192.168.1.38:5000/api/home/addCountry",
+      {
+        country_name_AR, country_name_EN,  country_name_FR, country_name_TR, shipping_price
+      },
+      config
+    );
+
+    dispatch({
+      type: COUNTRY_ADD_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: COUNTRY_ADD_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const getCountry = () => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: COUNTRY_LIST_REQUEST,
+    });
+
+    const { data } = await axios.get(
+      "http://192.168.1.38:5000/api/home/countries"
+    );
+
+    dispatch({
+      type: COUNTRY_LIST_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: COUNTRY_LIST_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const updateCountry = (id, country) => async (
+  dispatch,
+  getState
+) => {
+  try {
+    dispatch({
+      type: COUNTRY_UPDATE_REQUEST,
+    });
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const { data } = await axios.put(
+      `/api/Home/editCountry/${id}`,
+      country,
+      config
+    );
+
+    dispatch({
+      type: COUNTRY_UPDATE_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: COUNTRY_UPDATE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const deleteCountry = (id) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: COUNTRY_DELETE_REQUEST,
+    });
+
+    const { data } = await axios.delete(
+      `http://192.168.1.38:5000/api/home/deleteCountry/${id}`
+    );
+
+    dispatch({
+      type: COUNTRY_DELETE_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: COUNTRY_DELETE_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

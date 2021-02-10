@@ -81,6 +81,7 @@ const PrivacyPolicy = () => {
 useEffect(()=>{
   if(success ||editSuccess || deleteSuccess){
    dispatch(getPrivacyPolicyList())
+   window.location.reload();
    setShowForm(false)
   }
 },[dispatch, success,editSuccess, deleteSuccess])
@@ -215,7 +216,7 @@ useEffect(()=>{
                         onChange={(e) => setHeader_ar(e.target.value)}
                        type="text"
                        value={header_ar}
-                       placeholder="عنوان حول الشركة"
+                       placeholder="عنوان سياسة الخصوصية"
                        dir="rtl"
                />
                   </CCol>
@@ -318,7 +319,7 @@ useEffect(()=>{
                         onChange={(e) => setHeader_en(e.target.value)}
                        type="text"
                        value={header_en}
-                       placeholder="Header About The Company"
+                       placeholder="Header"
                />
                   </CCol>
                  </CFormGroup>
@@ -372,7 +373,7 @@ useEffect(()=>{
                onChange={(e) => setHeader_ar(e.target.value)}
               type="text"
               value={header_ar}
-              placeholder="عنوان حول الشركة"
+              placeholder="عنوان سياسة الخصوصية"
               dir="rtl"
       />
          </CCol>
@@ -475,7 +476,7 @@ useEffect(()=>{
                onChange={(e) => setHeader_en(e.target.value)}
               type="text"
               value={header_en}
-              placeholder="Header About The Company"
+              placeholder="Header"
       />
          </CCol>
         </CFormGroup>

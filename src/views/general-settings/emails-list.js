@@ -6,6 +6,7 @@ import Loader from "src/views/notifications/alerts/Loader";
 import Message from "src/views/notifications/alerts/Message";
 import { CForm,CButton, CFormGroup, CCol, CLabel, CRow, CModal,CModalBody,CModalFooter, CModalHeader} from "@coreui/react";
 
+
 const EmailLists = ()=> {
 
   const listEmails = useSelector((state) => state.emailsLists);
@@ -16,11 +17,13 @@ const EmailLists = ()=> {
   const ListEmailsDelete = useSelector(state => state.emailsListDelete);
   const {success:deleteSuccess, error:deleteError} = ListEmailsDelete;
 
+  const [emailId, setEmailId] = useState(0);
+
   const dispatch = useDispatch();
 
-  const refreshPage = ()=>{
-    window.location.reload();
- }
+//   const refreshPage = ()=>{
+//     window.location.reload();
+//  }
 //  const [emails, setEmails]= useState("");
 
 const [showForm, setShowForm] = useState(false);
@@ -39,16 +42,18 @@ const [showForm, setShowForm] = useState(false);
     }
   },[dispatch,deleteSuccess])
   
+  
   const deleteRequest=(id)=>{
+   
    dispatch(deleteEmailList(id))
- 
+
   }
   
   
 return(<>
 
-   <CRow > 
-   <CForm style={{padding:20}} >      
+   <CRow> 
+   <CForm style={{padding:20}}>      
   <CFormGroup row md="3" sm="3" xs="3">
     <CCol>
     {deleteError && <Message variant='danger'>{deleteError}</Message>}
@@ -59,25 +64,24 @@ return(<>
   { emailsList.map((list, index)=>(
       <CFormGroup row key={index}>   
           <CCol md="3" sm="3" xs="3">
-           <CButton type="button" onClick={openForm} size="sm" color="danger" >
+           <CButton type="button" onClick={()=>{openForm(); setEmailId(list.id)}} size="sm" color="danger" >
                 <i className="fas fa-trash"></i> Delete </CButton>
-         <CModal show={showForm} onClose={refreshPage}>
-           <CModalHeader closeButton>Delete Confirmation</CModalHeader>
-            <CModalBody>Are you sure to delete permanently?</CModalBody>
-            <CModalFooter>
-            <CButton type="button" size="sm" color="danger" key={list.id} onClick={()=>deleteRequest(list.id)} >
-              <i className="fas fa-trash"></i>Delete</CButton>
-           {console.log(list.id)}
-           <CButton color="secondary" onClick={openForm}>Cancel</CButton>
-             </CModalFooter>
-        </CModal>
         </CCol>
-          
          <CCol md="3" sm="3" xs="3">
           <CLabel htmlFor="text-input" dir="rtl" style={{padding:5 ,margin:5}}> {list.email}</CLabel>
          </CCol>
        </CFormGroup>
-       ))} 
+       ))}
+
+       <CModal show={showForm} onClose={openForm}>
+           <CModalHeader closeButton>Delete Confirmation</CModalHeader>
+            <CModalBody>Are you sure to delete permanently?</CModalBody>
+            <CModalFooter>
+            <CButton type="button" size="sm" color="danger"  onClick={()=>deleteRequest(emailId)}>
+              <i className="fas fa-trash"></i>Delete</CButton>
+           <CButton color="secondary" onClick={openForm}>Cancel</CButton>
+             </CModalFooter>
+        </CModal> 
   </CForm>
 </CRow>
 

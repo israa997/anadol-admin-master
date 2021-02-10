@@ -41,6 +41,30 @@ import {
   SOCIALACCOUNT_DELETE_REQUEST,
   SOCIALACCOUNT_DELETE_SUCCESS,
   SOCIALACCOUNT_DELETE_FAIL,
+  CURRENCY_DELETE_FAIL,
+  CURRENCY_DELETE_SUCCESS,
+  CURRENCY_DELETE_REQUEST,
+  CURRENCY_UPDATE_FAIL,
+  CURRENCY_UPDATE_SUCCESS,
+  CURRENCY_UPDATE_REQUEST,
+  CURRENCY_ADD_FAIL,
+  CURRENCY_ADD_SUCCESS,
+  CURRENCY_ADD_REQUEST,
+  CURRENCY_LIST_FAIL,
+  CURRENCY_LIST_SUCCESS,
+  CURRENCY_LIST_REQUEST,
+  COUNTRY_LIST_REQUEST,
+  COUNTRY_LIST_SUCCESS,
+  COUNTRY_LIST_FAIL,
+  COUNTRY_DELETE_FAIL,
+  COUNTRY_DELETE_SUCCESS,
+  COUNTRY_DELETE_REQUEST,
+  COUNTRY_UPDATE_FAIL,
+  COUNTRY_UPDATE_SUCCESS,
+  COUNTRY_UPDATE_REQUEST,
+  COUNTRY_ADD_FAIL,
+  COUNTRY_ADD_SUCCESS,
+  COUNTRY_ADD_REQUEST,
 } from "src/constants/generalSettingsConstants.js";
 
 export const aboutListReducer = (state = { about: [] }, action) => {
@@ -256,10 +280,7 @@ export const emailsListDeleteReducer = (state = { emailsList: [] }, action) => {
   }
 };
 
-export const socialAccountListReducer = (
-  state = { social: [] },
-  action
-) => {
+export const socialAccountListReducer = (state = { social: [] }, action) => {
   switch (action.type) {
     case SOCIALACCOUNT_LIST_REQUEST:
       return {
@@ -317,10 +338,7 @@ export const updateSocialAccountReducer = (state = {}, action) => {
   }
 };
 
-export const SocialAccountDeleteReducer = (
-  state = { social: [] },
-  action
-) => {
+export const SocialAccountDeleteReducer = (state = { social: [] }, action) => {
   switch (action.type) {
     case SOCIALACCOUNT_DELETE_REQUEST:
       return {
@@ -334,6 +352,169 @@ export const SocialAccountDeleteReducer = (
         social: action.payload,
       };
     case SOCIALACCOUNT_DELETE_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const CurrencyListReducer = (state = { currency: [] }, action) => {
+  switch (action.type) {
+    case CURRENCY_LIST_REQUEST:
+      return {
+        loading: true,
+        currency: [],
+      };
+    case CURRENCY_LIST_SUCCESS:
+      return {
+        loading: false,
+        currency: action.payload,
+      };
+    case CURRENCY_LIST_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const CurrencyCreateReducer = (state = {}, action) => {
+  switch (action.type) {
+    case CURRENCY_ADD_REQUEST:
+      return {
+        loading: true,
+        currency: [],
+      };
+    case CURRENCY_ADD_SUCCESS:
+      return {
+        loading: false,
+        success: true,
+        currency: action.payload,
+      };
+    case CURRENCY_ADD_FAIL:
+      return {
+        loading: false,
+        err: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const updateCurrencyReducer = (state = {}, action) => {
+  switch (action.type) {
+    case CURRENCY_UPDATE_REQUEST:
+      return { loading: true };
+    case CURRENCY_UPDATE_SUCCESS:
+      return { loading: false, success: true, currency: action.payload };
+    case CURRENCY_UPDATE_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const CurrencyDeleteReducer = (state = { currency: [] }, action) => {
+  switch (action.type) {
+    case CURRENCY_DELETE_REQUEST:
+      return {
+        loading: true,
+        currency: [],
+      };
+    case CURRENCY_DELETE_SUCCESS:
+      return {
+        loading: false,
+        success: true,
+        currency: action.payload,
+      };
+    case CURRENCY_DELETE_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+
+export const countryListReducer = (state = { country: [] }, action) => {
+  switch (action.type) {
+    case COUNTRY_LIST_REQUEST:
+      return {
+        loading: true,
+        country: [],
+      };
+    case COUNTRY_LIST_SUCCESS:
+      return {
+        loading: false,
+        country: action.payload,
+      };
+    case COUNTRY_LIST_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const countryCreateReducer = (state = {}, action) => {
+  switch (action.type) {
+    case COUNTRY_ADD_REQUEST:
+      return {
+        loading: true,
+        country: [],
+      };
+    case COUNTRY_ADD_SUCCESS:
+      return {
+        loading: false,
+        success: true,
+        country: action.payload,
+      };
+    case COUNTRY_ADD_FAIL:
+      return {
+        loading: false,
+        err: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const updateCountryReducer = (state = {}, action) => {
+  switch (action.type) {
+    case COUNTRY_UPDATE_REQUEST:
+      return { loading: true };
+    case COUNTRY_UPDATE_SUCCESS:
+      return { loading: false, success: true, Country: action.payload };
+    case COUNTRY_UPDATE_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const countryDeleteReducer = (state = { country: [] }, action) => {
+  switch (action.type) {
+    case COUNTRY_DELETE_REQUEST:
+      return {
+        loading: true,
+        country: [],
+      };
+    case COUNTRY_DELETE_SUCCESS:
+      return {
+        loading: false,
+        success: true,
+        country: action.payload,
+      };
+    case COUNTRY_DELETE_FAIL:
       return {
         loading: false,
         error: action.payload,

@@ -81,6 +81,7 @@ const About = () => {
 useEffect(()=>{
   if(success ||editSuccess || deleteSuccess){
    dispatch(getAboutList())
+   window.location.reload();
    setShowForm(false)
   }
 },[dispatch, success,editSuccess, deleteSuccess])
