@@ -81,7 +81,7 @@ const About = () => {
 useEffect(()=>{
   if(success ||editSuccess || deleteSuccess){
    dispatch(getAboutList())
-  //  window.location.reload();
+   window.location.reload();
    setShowForm(false)
   }
 },[dispatch, success,editSuccess, deleteSuccess])
@@ -91,7 +91,7 @@ useEffect(()=>{
   
   if(header_ar && content_ar  &&  header_fr &&  content_fr &&  header_tr && content_tr &&  header_en &&  content_en){
    dispatch(postAboutList(header_ar,content_ar , header_fr, content_fr, header_tr,content_tr, header_en, content_en));
-  //  window.location.reload();
+    window.location.reload();
   }
   else{
     alert("الرجاء ملئ الحقول الفارغة")

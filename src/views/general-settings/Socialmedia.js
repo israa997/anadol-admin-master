@@ -78,7 +78,7 @@ const SocialMedia = () => {
     if (success || editSuccess || deleteSuccess) {
       dispatch(getSocialAccountList());
       setShowForm(false);
-      // window.location.reload();
+      window.location.reload();
     }
   }, [dispatch, success, editSuccess, deleteSuccess]);
 
@@ -105,7 +105,7 @@ const SocialMedia = () => {
           telegram_URL
         )
       );
-      // window.location.reload();
+       window.location.reload();
     } else {
       alert("الرجاء ملئ الحقول الفارغة");
     }

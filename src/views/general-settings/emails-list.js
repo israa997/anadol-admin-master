@@ -38,7 +38,7 @@ const [showForm, setShowForm] = useState(false);
     if(deleteSuccess){
      dispatch(getemailsList())
      setShowForm(false)
-    //  window.location.reload();
+      window.location.reload();
     }
   },[dispatch,deleteSuccess])
   

@@ -70,7 +70,7 @@ import {
       if (success || editSuccess || deleteSuccess) {
         dispatch(getBannerList());
         setShowForm(false);
-        // window.location.reload();
+        window.location.reload();
       }
     }, [dispatch, success, editSuccess, deleteSuccess]);
   
@@ -89,7 +89,7 @@ import {
             banner_text_TR
           )
         );
-        // window.location.reload();
+      window.location.reload();
       } else {
         alert("Please fill the fields");
       }

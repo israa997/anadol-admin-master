@@ -85,7 +85,7 @@ export const Country = ()=>{
         setShowFormCreate(false);
         setShowFormEdit(false);
         setShowFormDelete(false);
-        // window.location.reload();
+         window.location.reload();
       }
     }, [dispatch, success, editSuccess, deleteSuccess]);
   
@@ -108,7 +108,7 @@ export const Country = ()=>{
                 
           )
         );
-        // window.location.reload();
+         window.location.reload();
       } else {
         alert("الرجاء ملئ الحقول الفارغة");
       }
