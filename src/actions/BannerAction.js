@@ -29,7 +29,7 @@ export const postBannerList = (
       };
   
       const { data } = await axios.post(
-        "http://192.168.1.38:5000/api/home/addBanner",
+        "/api/home/addBanner",
         {
             banner_text_AR,banner_text_EN, banner_text_FR,banner_text_TR
         },
@@ -58,7 +58,7 @@ export const postBannerList = (
       });
   
       const { data } = await axios.get(
-        "http://192.168.1.38:5000/api/home/banner"
+        "/api/home/banner"
       );
   
       dispatch({
@@ -119,7 +119,7 @@ export const postBannerList = (
       });
   
       const { data } = await axios.delete(
-        `http://192.168.1.38:5000/api/home/deleteBanner/${id}`
+        `/api/home/deleteBanner/${id}`
       );
   
       dispatch({

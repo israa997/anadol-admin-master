@@ -89,7 +89,7 @@ export const postAboutList = (
     };
 
     const { data } = await axios.post(
-      "http://192.168.1.38:5000/api/home/addAbout",
+      "/api/home/addAbout",
       {
         header_ar,
         content_ar,
@@ -124,7 +124,7 @@ export const getAboutList = () => async (dispatch, getState) => {
       type: ABOUT_LIST_REQUEST,
     });
 
-    const { data } = await axios.get("http://192.168.1.38:5000/api/home/about");
+    const { data } = await axios.get("/api/home/about");
 
     dispatch({
       type: ABOUT_LIST_SUCCESS,
@@ -181,7 +181,7 @@ export const deleteAbout = (id) => async (dispatch, getState) => {
     });
 
     const { data } = await axios.delete(
-      `http://192.168.1.38:5000/api/home/deleteAbout/${id}`
+      `/api/home/deleteAbout/${id}`
     );
 
     dispatch({
@@ -220,7 +220,7 @@ export const postPrivacyPolicyList = (
     };
 
     const { data } = await axios.post(
-      "http://192.168.1.38:5000/api/home/addPrivacy-Policy",
+      "/api/home/addPrivacy-Policy",
       {
         header_ar,
         content_ar,
@@ -256,7 +256,7 @@ export const getPrivacyPolicyList = () => async (dispatch, getState) => {
     });
 
     const { data } = await axios.get(
-      "http://192.168.1.38:5000/api/home/privacy-policy"
+      "/api/home/privacy-policy"
     );
 
     dispatch({
@@ -317,7 +317,7 @@ export const deletePrivacyPolicy = (id) => async (dispatch, getState) => {
     });
 
     const { data } = await axios.delete(
-      `http://192.168.1.38:5000/api/home/deletePrivacy-Policy/${id}`
+      `/api/home/deletePrivacy-Policy/${id}`
     );
 
     dispatch({
@@ -342,7 +342,7 @@ export const getemailsList = () => async (dispatch, getState) => {
     });
 
     const { data } = await axios.get(
-      "http://192.168.1.38:5000/api/home/announce-email"
+      "/api/home/announce-email"
     );
 
     dispatch({
@@ -367,7 +367,7 @@ export const deleteEmailList = (id) => async (dispatch, getState) => {
     });
 
     const { data } = await axios.delete(
-      `http://192.168.1.38:5000/api/home/deleteAnnounce-email/${id}`
+      `/api/home/deleteAnnounce-email/${id}`
     );
 
     dispatch({
@@ -406,7 +406,7 @@ export const postSocialAccountList = (
     };
 
     const { data } = await axios.post(
-      "http://192.168.1.38:5000/api/home/postSocial-accounts",
+      "/api/home/postSocial-accounts",
       {
         phoneNum,
         instagram_URL,
@@ -442,7 +442,7 @@ export const getSocialAccountList = () => async (dispatch, getState) => {
     });
 
     const { data } = await axios.get(
-      "http://192.168.1.38:5000/api/home/social-accounts"
+      "/api/home/social-accounts"
     );
 
     dispatch({
@@ -503,7 +503,7 @@ export const deleteSocialAccount = (id) => async (dispatch, getState) => {
     });
 
     const { data } = await axios.delete(
-      `http://192.168.1.38:5000/api/home/deleteSocialAccounts/${id}`
+      `/api/home/deleteSocialAccounts/${id}`
     );
 
     dispatch({
@@ -540,7 +540,7 @@ export const postCurrency = (
     };
 
     const { data } = await axios.post(
-      "http://192.168.1.38:5000/api/home/addCurrency",
+      "/api/home/addCurrency",
       {
         currency_name_AR,
       currency_name_FR, 
@@ -574,7 +574,7 @@ export const getCurrency = () => async (dispatch, getState) => {
     });
 
     const { data } = await axios.get(
-      "http://192.168.1.38:5000/api/home/currencies"
+      "/api/home/currencies"
     );
 
     dispatch({
@@ -635,7 +635,7 @@ export const deleteCurrency = (id) => async (dispatch, getState) => {
     });
 
     const { data } = await axios.delete(
-      `http://192.168.1.38:5000/api/home/deleteCurrency/${id}`
+      `/api/home/deleteCurrency/${id}`
     );
 
     dispatch({
@@ -667,7 +667,7 @@ export const postCountry = (
     };
 
     const { data } = await axios.post(
-      "http://192.168.1.38:5000/api/home/addCountry",
+      "/api/home/addCountry",
       {
         country_name_AR, country_name_EN,  country_name_FR, country_name_TR, shipping_price
       },
@@ -696,7 +696,7 @@ export const getCountry = () => async (dispatch, getState) => {
     });
 
     const { data } = await axios.get(
-      "http://192.168.1.38:5000/api/home/countries"
+      "/api/home/countries"
     );
 
     dispatch({
@@ -757,7 +757,7 @@ export const deleteCountry = (id) => async (dispatch, getState) => {
     });
 
     const { data } = await axios.delete(
-      `http://192.168.1.38:5000/api/home/deleteCountry/${id}`
+      `/api/home/deleteCountry/${id}`
     );
 
     dispatch({
