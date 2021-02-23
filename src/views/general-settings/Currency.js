@@ -110,7 +110,7 @@ export const Currency = ()=>{
         );
         window.location.reload();
       } else {
-        alert("Please fill the fields");
+        alert("الرجاء ملئ الحقول الفارغة");
       }
     };
   
@@ -136,7 +136,7 @@ export const Currency = ()=>{
           })
         );
       } else {
-        alert("Please fill the fields");
+        alert("الرجاء ملئ الحقول الفارغة");
       }
     };
   
@@ -152,9 +152,9 @@ return(
   <CFormGroup row md="2">
     <CCol>
     {deleteError && <Message variant='danger'>{deleteError}</Message>}
-    {deleteSuccess && <Message variant='success'>Delete it Succcessfully</Message>}
+    {deleteSuccess && <Message variant='success'>تم الحذف بنجاح</Message>}
     {editError && <Message variant='danger'>{editError}</Message>}
-    {editSuccess && <Message variant='success'>Currency Updated</Message>}
+    {editSuccess && <Message variant='success'>تم التحديث العملة بنجاح</Message>}
      {loading && <Loader />}
     </CCol>
   </CFormGroup>
@@ -162,12 +162,12 @@ return(
       <CFormGroup row key={index} style={{borderBottom:"0.5px solid darkGrey"}}>   
           <CCol md="3">
            <CButton type="button" onClick={()=>{openFormDelete(); setCurrencyId(list.id)}} size="sm" color="danger" >
-                <i className="fas fa-trash"></i> Delete </CButton>
+                <i className="fas fa-trash"></i> حذف </CButton>
          
         </CCol>
         <CCol md="3" >
            <CButton type="button" onClick={()=>{openFormEdit(); setCurrencyId(list.id)}} size="sm" color="secondary" >
-                <i className="fas fa-edit"></i> Edit </CButton>
+                <i className="fas fa-edit"></i> تعديل </CButton>
         </CCol>
       
          <CCol md="1">
@@ -202,18 +202,18 @@ return(
        </CFormGroup>
        ))} 
        <CModal show={showFormDelete} onClose={openFormDelete}>
-           <CModalHeader closeButton>Delete Confirmation</CModalHeader>
-            <CModalBody>Are you sure to delete permanently?</CModalBody>
+           <CModalHeader closeButton>تأكيد الحذف</CModalHeader>
+            <CModalBody>هل انت متأكد من الحذف بشكل نهائي؟</CModalBody>
             <CModalFooter>
             <CButton type="button" size="sm" color="danger"  onClick={()=>deleteRequest(currencyId)} >
-              <i className="fas fa-trash"></i>Delete</CButton>
+              <i className="fas fa-trash"></i>حذف</CButton>
            
-           <CButton color="secondary" onClick={openFormDelete}>Cancel</CButton>
+           <CButton color="secondary" onClick={openFormDelete}>الغاء</CButton>
              </CModalFooter>
         </CModal>
 
         <CModal show={showFormEdit} onClose={openFormEdit}>
-           <CModalHeader closeButton>Edit</CModalHeader>
+           <CModalHeader closeButton>تعديل</CModalHeader>
             <CModalBody>
            
                 <CFormGroup row>
@@ -297,8 +297,8 @@ return(
              </CModalBody>
             <CModalFooter>
             <CButton type="button" size="sm" color="primary" onClick={()=>submitUpdateHandler(currencyId)} >
-              <i className="fas fa-plus"></i>Edit</CButton>
-           <CButton color="secondary" onClick={openFormEdit}>Cancel</CButton>
+              <i className="fas fa-plus"></i>تعديل</CButton>
+           <CButton color="secondary" onClick={openFormEdit}>الغاء</CButton>
              </CModalFooter>
         </CModal>
   </CForm>
@@ -307,15 +307,15 @@ return(
 <CRow>
 <CCol>
     {err && <Message variant='danger'>{err}</Message>}
-    {success && <Message variant='success'>Create it successfully</Message>}
+    {success && <Message variant='success'>تم الانشاء بنجاح</Message>}
      {loading && <Loader />}
     </CCol>
 <CCol md="12" >
            <CButton type="button" onClick={openFormCreate} size="sm" color="primary" >
-                Create </CButton>
+                انشاء عملة </CButton>
          <CModal show={showFormCreate} onClose={openFormCreate}>
          <CForm> 
-           <CModalHeader closeButton>Create a Currency</CModalHeader>
+           <CModalHeader closeButton>انشاء عملة</CModalHeader>
             <CModalBody>
                 <CFormGroup row>
                 <CCol md="3">
@@ -399,8 +399,8 @@ return(
              </CModalBody>
             <CModalFooter>
             <CButton type="button" size="sm" color="primary"  onClick={submitCreateHandler}>
-              <i className="fas fa-plus"></i>ADD</CButton>
-           <CButton color="secondary" onClick={openFormCreate}>Cancel</CButton>
+              <i className="fas fa-plus"></i>اضافة</CButton>
+           <CButton color="secondary" onClick={openFormCreate}>الغاء</CButton>
              </CModalFooter>
              </CForm> 
         </CModal>

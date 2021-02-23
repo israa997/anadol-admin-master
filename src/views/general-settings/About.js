@@ -81,7 +81,7 @@ const About = () => {
 useEffect(()=>{
   if(success ||editSuccess || deleteSuccess){
    dispatch(getAboutList())
-   window.location.reload();
+  //  window.location.reload();
    setShowForm(false)
   }
 },[dispatch, success,editSuccess, deleteSuccess])
@@ -91,10 +91,10 @@ useEffect(()=>{
   
   if(header_ar && content_ar  &&  header_fr &&  content_fr &&  header_tr && content_tr &&  header_en &&  content_en){
    dispatch(postAboutList(header_ar,content_ar , header_fr, content_fr, header_tr,content_tr, header_en, content_en));
-   window.location.reload();
+  //  window.location.reload();
   }
   else{
-    alert("Please fill the fields")
+    alert("الرجاء ملئ الحقول الفارغة")
   }
 }
 
@@ -103,7 +103,7 @@ useEffect(()=>{
      dispatch(updateAbout(aboutId, {header_ar,content_ar , header_fr, content_fr, header_tr,content_tr, header_en, content_en}));
     }
     else{
-      alert("Please fill the fields")
+      alert("الرجاء ملئ الحقول الفارغة")
     }
   }
  
@@ -122,11 +122,11 @@ useEffect(()=>{
     (<>
       <CRow>
           <CCol sm="6" md="6">
-          <h3>Reading and Deleting the current <em style={{ fontWeight:"bold"}}>About</em></h3>
+          <h3>قراءة وحذف عن <em style={{ fontWeight:"bold"}}>حول الشركة</em></h3>
           <table>
             <thead>
               <tr><td>{deleteError && <Message variant='danger'>{deleteError}</Message>}
-               {deleteSuccess && <Message variant='success'>Delete it Succcessfully</Message>}
+               {deleteSuccess && <Message variant='success'>تم الحذف بنجاح</Message>}
                {loading && <Loader />}</td></tr>
             </thead>
             </table> 
@@ -195,16 +195,16 @@ useEffect(()=>{
       
               <CForm onSubmit={deleteRequestOfAbout}>
               <CButton type="submit" size="sm" color="danger" style={{padding:5 ,margin:5}}>
-              <i className="fas fa-trash"></i>Delete</CButton>
+              <i className="fas fa-trash"></i>حذف</CButton>
               </CForm>
             </CCol>
             </CRow> 
          <hr></hr>
             <CRow > 
            <CCol>
-               <h3>Editing</h3>
+               <h3>التعديل</h3>
                {editError && <Message variant='danger'>{editError}</Message>}
-               {editSuccess && <Message variant='success'>About Updated</Message>}
+               {editSuccess && <Message variant='success'>تم تحديث حول الشركة بنجاح</Message>}
                {loading && <Loader />}
                <CForm onSubmit={submitUpdateHandler} style={{padding:20}}>
                      <CFormGroup row>
@@ -343,13 +343,13 @@ useEffect(()=>{
                    </CCol>
                  </CFormGroup>
                  <CButton type="submit" size="sm" color="primary" style={{padding:5, margin:5}}>
-              <i className="fas fa-plus"></i> Add</CButton>
+              <i className="fas fa-plus"></i> اضافة</CButton>
              </CForm>
            </CCol>
            </CRow>
            </>): 
   ( <CForm><CButton type="button" onClick={openForm} size="sm" color="primary" >
-  <i className="fas fa-plus"></i> Create </CButton></CForm>)
+  <i className="fas fa-plus"></i> انشاء حول الشركة </CButton></CForm>)
   }
      
      
@@ -357,7 +357,7 @@ useEffect(()=>{
  show={showForm}
  onClose={openForm}> <CModalHeader closeButton> </CModalHeader>{
      
-         success ?( <Message variant='success'>Add it successfully</Message> ):
+         success ?( <Message variant='success'>تم الانشاء بنجاح</Message> ):
          err ? (<Message variant='danger'>{err}</Message>):
          loading ?( <Loader />): 
      
@@ -500,7 +500,7 @@ useEffect(()=>{
           </CCol>
         </CFormGroup>
         <CButton type="submit" size="sm" color="primary">
-     <i className="fas fa-plus"></i> Add</CButton>
+     <i className="fas fa-plus"></i> اضافة</CButton>
     </CForm>
      
     }</CModal>}

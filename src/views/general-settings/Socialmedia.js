@@ -78,7 +78,7 @@ const SocialMedia = () => {
     if (success || editSuccess || deleteSuccess) {
       dispatch(getSocialAccountList());
       setShowForm(false);
-      window.location.reload();
+      // window.location.reload();
     }
   }, [dispatch, success, editSuccess, deleteSuccess]);
 
@@ -105,9 +105,9 @@ const SocialMedia = () => {
           telegram_URL
         )
       );
-      window.location.reload();
+      // window.location.reload();
     } else {
-      alert("Please fill the fields");
+      alert("الرجاء ملئ الحقول الفارغة");
     }
   };
 
@@ -135,7 +135,7 @@ const SocialMedia = () => {
         })
       );
     } else {
-      alert("Please fill the fields");
+      alert("الرجاء ملئ الحقول الفارغة");
     }
   };
 
@@ -152,8 +152,8 @@ const SocialMedia = () => {
               <CRow>
                 <CCol sm="6" md="6">
                   <h4>
-                    Reading and Deleting the current{" "}
-                    <em style={{ fontWeight: "bold" }}>Social Media</em>
+                    قراءة وحذف منصات{" "}
+                    <em style={{ fontWeight: "bold" }}>التواصل الاجتماعي</em>
                   </h4>
                   <table>
                     <thead>
@@ -164,7 +164,7 @@ const SocialMedia = () => {
                           )}
                           {deleteSuccess && (
                             <Message variant="success">
-                              Delete it Succcessfully
+                              تم الحذف بنجاح
                             </Message>
                           )}
                           {loading && <Loader />}
@@ -209,7 +209,7 @@ const SocialMedia = () => {
                       color="danger"
                       style={{ padding: 5, margin: 5 }}
                     >
-                      <i className="fas fa-trash"></i>Delete
+                      <i className="fas fa-trash"></i>حذف
                     </CButton>
                   </CForm>
                 </CCol>
@@ -217,10 +217,10 @@ const SocialMedia = () => {
               <hr></hr>
               <CRow>
                 <CCol>
-                  <h3>Editing</h3>
+                  <h3>التعديل</h3>
                   {editError && <Message variant="danger">{editError}</Message>}
                   {editSuccess && (
-                    <Message variant="success">About Updated</Message>
+                    <Message variant="success">تم التحديث بنجاح</Message>
                   )}
                   {loading && <Loader />}
                   <CForm onSubmit={submitUpdateHandler} style={{ padding: 20 }}>
@@ -337,7 +337,7 @@ const SocialMedia = () => {
                       color="primary"
                       style={{ padding: 5, margin: 5 }}
                     >
-                      <i className="fas fa-plus"></i> Add
+                      <i className="fas fa-plus"></i> اضافة
                     </CButton>
                   </CForm>
                 </CCol>
@@ -351,7 +351,7 @@ const SocialMedia = () => {
                 size="sm"
                 color="primary"
               >
-                <i className="fas fa-plus"></i> Create{" "}
+                <i className="fas fa-plus"></i> انشاء منصات التواصل الاجتماعي{" "}
               </CButton>
             </CForm>
           )}
@@ -361,7 +361,7 @@ const SocialMedia = () => {
               {" "}
               <CModalHeader closeButton> </CModalHeader>
               {success ? (
-                <Message variant="success">Add it successfully</Message>
+                <Message variant="success">تم الانشاء بنجاح</Message>
               ) : err ? (
                 <Message variant="danger">{err}</Message>
               ) : loading ? (
@@ -476,7 +476,7 @@ const SocialMedia = () => {
                     </CCol>
                   </CFormGroup>
                   <CButton type="submit" size="sm" color="primary">
-                    <i className="fas fa-plus"></i> Add
+                    <i className="fas fa-plus"></i> اضافة
                   </CButton>
                 </CForm>
               )}

@@ -70,7 +70,7 @@ import {
       if (success || editSuccess || deleteSuccess) {
         dispatch(getBannerList());
         setShowForm(false);
-        window.location.reload();
+        // window.location.reload();
       }
     }, [dispatch, success, editSuccess, deleteSuccess]);
   
@@ -89,7 +89,7 @@ import {
             banner_text_TR
           )
         );
-        window.location.reload();
+        // window.location.reload();
       } else {
         alert("Please fill the fields");
       }
@@ -130,8 +130,8 @@ import {
                 <CRow>
                   <CCol sm="6" md="6">
                     <h4>
-                      Reading and Deleting the current{" "}
-                      <em style={{ fontWeight: "bold" }}>Banner </em>
+                     قراءة وحذف{" "}
+                      <em style={{ fontWeight: "bold" }}>الشريط الاعلاني </em>
                     </h4>
                     <table>
                       <thead>
@@ -142,7 +142,7 @@ import {
                             )}
                             {deleteSuccess && (
                               <Message variant="success">
-                                Delete it Succcessfully
+                                نم الحذف بنجاح
                               </Message>
                             )}
                             {loading && <Loader />}
@@ -174,7 +174,7 @@ import {
                         color="danger"
                         style={{ padding: 5, margin: 5 }}
                       >
-                        <i className="fas fa-trash"></i>Delete
+                        <i className="fas fa-trash"></i>حذف
                       </CButton>
                     </CForm>
                   </CCol>
@@ -182,7 +182,7 @@ import {
                 <hr></hr>
                 <CRow>
                   <CCol>
-                    <h3>Editing</h3>
+                    <h3>التعديل</h3>
                     {editError && <Message variant="danger">{editError}</Message>}
                     {editSuccess && (
                       <Message variant="success">Banner Updated</Message>
@@ -251,7 +251,7 @@ import {
                         color="primary"
                         style={{ padding: 5, margin: 5 }}
                       >
-                        <i className="fas fa-plus"></i> Add
+                        <i className="fas fa-plus"></i> اضافة
                       </CButton>
                     </CForm>
                   </CCol>
@@ -265,7 +265,7 @@ import {
                   size="sm"
                   color="primary"
                 >
-                  <i className="fas fa-plus"></i> Create{" "}
+                  <i className="fas fa-plus"></i> انشاء{" "}
                 </CButton>
               </CForm>
             )}
@@ -275,7 +275,7 @@ import {
                 {" "}
                 <CModalHeader closeButton> </CModalHeader>
                 {success ? (
-                  <Message variant="success">Add it successfully</Message>
+                  <Message variant="success">تم الانشاء بنجاح</Message>
                 ) : err ? (
                   <Message variant="danger">{err}</Message>
                 ) : loading ? (
@@ -339,7 +339,7 @@ import {
                         </CCol>
                       </CFormGroup>
                     <CButton type="submit" size="sm" color="primary">
-                      <i className="fas fa-plus"></i> Add
+                      <i className="fas fa-plus"></i> اضافة
                     </CButton>
                   </CForm>
                 )}

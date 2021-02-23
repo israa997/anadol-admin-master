@@ -38,7 +38,7 @@ const [showForm, setShowForm] = useState(false);
     if(deleteSuccess){
      dispatch(getemailsList())
      setShowForm(false)
-     window.location.reload();
+    //  window.location.reload();
     }
   },[dispatch,deleteSuccess])
   
@@ -57,7 +57,7 @@ return(<>
   <CFormGroup row md="3" sm="3" xs="3">
     <CCol>
     {deleteError && <Message variant='danger'>{deleteError}</Message>}
-               {deleteSuccess && <Message variant='success'>Delete it Succcessfully</Message>}
+               {deleteSuccess && <Message variant='success'>تم الحذف بنجاح</Message>}
                {loading && <Loader />}
     </CCol>
   </CFormGroup>
@@ -65,7 +65,7 @@ return(<>
       <CFormGroup row key={index}>   
           <CCol md="3" sm="3" xs="3">
            <CButton type="button" onClick={()=>{openForm(); setEmailId(list.id)}} size="sm" color="danger" >
-                <i className="fas fa-trash"></i> Delete </CButton>
+                <i className="fas fa-trash"></i> حذف </CButton>
         </CCol>
          <CCol md="3" sm="3" xs="3">
           <CLabel htmlFor="text-input" dir="rtl" style={{padding:5 ,margin:5}}> {list.email}</CLabel>
@@ -74,12 +74,12 @@ return(<>
        ))}
 
        <CModal show={showForm} onClose={openForm}>
-           <CModalHeader closeButton>Delete Confirmation</CModalHeader>
-            <CModalBody>Are you sure to delete permanently?</CModalBody>
+           <CModalHeader closeButton>تأكيد الحذف</CModalHeader>
+            <CModalBody>هل انت متأكد من الحذف بشكل نهائي؟</CModalBody>
             <CModalFooter>
             <CButton type="button" size="sm" color="danger"  onClick={()=>deleteRequest(emailId)}>
-              <i className="fas fa-trash"></i>Delete</CButton>
-           <CButton color="secondary" onClick={openForm}>Cancel</CButton>
+              <i className="fas fa-trash"></i>حذف</CButton>
+           <CButton color="secondary" onClick={openForm}>الغاء</CButton>
              </CModalFooter>
         </CModal> 
   </CForm>
